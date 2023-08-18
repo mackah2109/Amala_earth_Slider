@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+     rel="stylesheet"
+    /> 
+    <style>
+        .earth-friendly{
+            padding-left: 100px;
+        }
+    .wrapper {
+        max-width: 1100px;
+        width: 100%;
+        position: relative;
+        margin-left: 80px;
+        padding-bottom: 20px;
+      }
+
+      .wrapper .carousel {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: calc((100% / 5) - 25px);
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 50px;
+        border-radius: 8px;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+      }
+      .carousel::-webkit-scrollbar {
+        display: none;
+      }
+      .carousel.no-transition {
+        scroll-behavior: auto;
+      }
+      .carousel.dragging {
+        scroll-snap-type: none;
+        scroll-behavior: auto;
+      }
+      .carousel.dragging .card {
+        cursor: grab;
+        user-select: none;
+      }
+      .carousel :where(.card, .img) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .carousel .card {
+        scroll-snap-align: start;
+        height: 342px;
+        list-style: none;
+        background: #fff;
+        cursor: pointer;
+        padding-bottom: 15px;
+        flex-direction: column;
+        border-radius: 8px;
+      }
+      .carousel .card .img {
+        height: 148px;
+        width: 148px;
+        border-radius: 50%;
+      }
+      .card .img img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #fff;
+      }
+      .carousel .card h2 {
+        font-weight: 500;
+        font-size: 1rem;
+        color: #946c56;
+      }
+      
+
+      @media screen and (max-width: 900px) {
+        .earth-friendly{
+            padding-left: 10px;
+        }
+        .wrapper{
+          margin-left: 0px;
+        }
+        .wrapper .carousel {
+          grid-auto-columns: calc((100% / 3) - 9px);
+          gap: 10px;
+        }
+        .card h2{
+            padding-left: 30px;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        .earth-friendly{
+            padding-left: 10px;
+        }
+        .wrapper{
+            margin-left: 0px;
+        }
+        .wrapper .carousel {
+          grid-auto-columns: calc((100%/3)-50px);
+          gap: 2px;
+        }
+        .carousel .card .img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+      }
+      .card .img img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #fff;
+      }
+      .carousel .card h2 {
+        font-size: 0.8rem;
+        margin-left: -0.8rem;
+
+      }
+      }</style>
+</head>
+<body>
+    <div class="earth-friendly" >
+        <h2
+          style="
+            font-family: Poppins;
+            font-weight: 400;
+            font-size: 36px;
+            color: #946c56;
+            margin-bottom: -35px;
+          "
+        >
+          Shop by
+        </h2>
+        <h1
+          style="
+            font-family: Poppins;
+            font-weight: 1000;
+            font-size: 36px;
+            color: #946c56;
+            margin-bottom: 5px;
+          "
+        >
+          earth-friendly practices
+        </h1>
+  
+        <div class="wrapper">
+          <ul class="carousel">
+            <li class="card">
+              <div class="img">
+                <img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/ef1.avif?v=1691745784" alt="img" draggable="false" />
+              </div>
+              <h2 style="font-family: Poppins">Recyclable Packaging</h2>
+            </li>
+            <li class="card">
+              <div class="img">
+                <img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/ef2.avif?v=1691745784" alt="img" draggable="false" />
+              </div>
+              <h2 style="font-family: Poppins">Locally Sourced</h2>
+            </li>
+            <li class="card">
+              <div class="img">
+                <img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/ef3.avif?v=1691745784" alt="img" draggable="false" />
+              </div>
+              <h2 style="font-family: Poppins">Zero Waste</h2>
+            </li>
+            <li class="card">
+              <div class="img">
+                <img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/ef4.avif?v=1691745784ef4.avif" alt="img" draggable="false" />
+              </div>
+              <h2 style="font-family: Poppins">Fair Trade</h2>
+            </li>
+            <li class="card">
+              <div class="img">
+                <img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/ef5.avif?v=1691745784f5.avif" alt="img" draggable="false" />
+              </div>
+              <h2>Artisan Led</h2>
+            </li>
+            <li class="card">
+              <div class="img">
+                <img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/ef6.avif?v=1691745784" alt="img" draggable="false" />
+              </div>
+              <h2 style="font-family: Poppins">Cruelty Free</h2>
+            </li>
+          </ul>
+        </div>
+        <script>
+          const wrapper = document.querySelector(".wrapper");
+          const carousel = document.querySelector(".carousel");
+          const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+          const arrowBtns = document.querySelectorAll(".wrapper i");
+          const carouselChildrens = [...carousel.children];
+          let isDragging = false,
+            isAutoPlay = true,
+            startX,
+            startScrollLeft,
+            timeoutId;
+  
+          let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
+  
+          carouselChildrens
+            .slice(-cardPerView)
+            .reverse()
+            .forEach((card) => {
+              carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+            });
+  
+          carouselChildrens.slice(0, cardPerView).forEach((card) => {
+            carousel.insertAdjacentHTML("beforeend", card.outerHTML);
+          });
+  
+          carousel.classList.add("no-transition");
+          carousel.scrollLeft = carousel.offsetWidth;
+          carousel.classList.remove("no-transition");
+  
+          arrowBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              carousel.scrollLeft +=
+                btn.id == "left" ? -firstCardWidth : firstCardWidth;
+            });
+          });
+          const dragStart = (e) => {
+            isDragging = true;
+            carousel.classList.add("dragging");
+  
+            startX = e.pageX;
+            startScrollLeft = carousel.scrollLeft;
+          };
+          const dragging = (e) => {
+            if (!isDragging) return;
+            carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+          };
+          const dragStop = () => {
+            isDragging = false;
+            carousel.classList.remove("dragging");
+          };
+          const infiniteScroll = () => {
+            if (carousel.scrollLeft === 0) {
+              carousel.classList.add("no-transition");
+              carousel.scrollLeft =
+                carousel.scrollWidth - 2 * carousel.offsetWidth;
+              carousel.classList.remove("no-transition");
+            } else if (
+              Math.ceil(carousel.scrollLeft) ===
+              carousel.scrollWidth - carousel.offsetWidth
+            ) {
+              carousel.classList.add("no-transition");
+              carousel.scrollLeft = carousel.offsetWidth;
+              carousel.classList.remove("no-transition");
+            }
+  
+            clearTimeout(timeoutId);
+            if (!wrapper.matches(":hover")) autoPlay();
+          };
+          const autoPlay = () => {
+            if (window.innerWidth < 800 || !isAutoPlay) return;
+  
+            timeoutId = setTimeout(
+              () => (carousel.scrollLeft += firstCardWidth),
+              2500
+            );
+          };
+          autoPlay();
+          carousel.addEventListener("mousedown", dragStart);
+          carousel.addEventListener("mousemove", dragging);
+          document.addEventListener("mouseup", dragStop);
+          carousel.addEventListener("scroll", infiniteScroll);
+          wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
+          wrapper.addEventListener("mouseleave", autoPlay);
+        </script>
+      </div>
+</body>
+</html>

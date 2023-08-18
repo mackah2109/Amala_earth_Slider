@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+     rel="stylesheet"
+    /> 
+    <script
+      src="https://kit.fontawesome.com/82101c29b3.js"
+      crossorigin="anonymous"
+    ></script>
+  
+    <style>
+      .deal{
+        padding-left: 100px;
+      }
+      .slider {
+        position: relative;
+        overflow: hidden;
+        margin-top: 50px;
+        width: 85%;
+      }
+
+      .slider-inner {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .slider-set {
+        padding: 15px;
+        display: flex;
+        flex: 0 0 100%;
+      }
+
+      .slider-item {
+        flex: 0 0 30%;
+      }
+
+      .slider-item img {
+        width: 90%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .slider-control {
+        position: absolute;
+        top: 37%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        text-decoration: none;
+        color: #333;
+        cursor: pointer;
+        z-index: 2;
+        border: none;
+        background-color: transparent;
+      }
+      .deal:hover .fa-solid {
+        display: inline-block;
+      }
+      .fa-solid {
+        color: rgb(213, 212, 212);
+        font-size: 50px;
+        display: none;
+      }
+      .next {
+        right: 110px;
+      }
+      .prev {
+        left: 85px;
+      }
+      .fa-solid:hover {
+        color: #b89c7d;
+      }
+      
+      
+    </style>
+  </head>
+  <body>
+    <div class="deal" >
+      <h1
+        style="
+          font-family: Poppins;
+          font-weight: 1000;
+          font-size: 36px;
+          line-height: 1.1;
+          color: #946c56;
+          margin-bottom: 5px;
+        "
+      >
+        Deal of the Day
+      </h1>
+      <button class="slider-control prev" href="#">
+        <i class="fa-solid fa-circle-chevron-left"></i>
+      </button>
+
+      <div class="slider">
+        <div class="slider-inner">
+          <div class="slider-set">
+            <div class="slider-item">
+              <a href="#"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/Deal1.webp?v=1691605015"
+                  alt="Image 1"
+              /></a>
+            </div>
+            <div class="slider-item">
+              <a href="#"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/Deal2.jpg?v=1691605015"
+                  alt="Image 2"
+              /></a>
+            </div>
+            <div class="slider-item">
+              <a href="#"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/Deal3.webp?v=1691605015"
+                  alt="Image 3"
+              /></a>
+            </div>
+          </div>
+          <div class="slider-set">
+            <div class="slider-item">
+              <a href="#"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/Deal14.webp?v=1691605015"
+                  alt="Image 4"
+              /></a>
+            </div>
+            <div class="slider-item">
+              <a href="#"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/Deal5.webp?v=1691605015"
+                  alt="Image 5"
+              /></a>
+            </div>
+            <div class="slider-item">
+              <a href="#"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/Deal6.webp?v=1691605015Deal6.webp"
+                  alt="Image 6"
+              /></a>
+            </div>
+          </div>
+          <div class="slider-set">
+            <div class="slider-item">
+              <a href="#"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/Deal7.webp?v=1691605015"
+                  alt="Image 7"
+              /></a>
+            </div>
+            <div class="slider-item">
+              <a href="#"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/Deal8.webp?v=1691605015"
+                  alt="Image 8"
+              /></a>
+            </div>
+            <div class="slider-item">
+              <a href="#"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/Deal9.webp?v=1691605016"
+                  alt="Image 9"
+              /></a>
+            </div>
+          </div>
+          <div class="slider-set">
+            <div class="slider-item">
+              <a href="#"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/Deal10.webp?v=1691605015"
+                  alt="Image 10"
+              /></a>
+            </div>
+            <div class="slider-item">
+              <a href="#"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/Deal11.webp?v=1691605015Deal11.webp"
+                  alt="Image 11"
+              /></a>
+            </div>
+            <div class="slider-item">
+              <a href="#"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/Deal12.webp?v=1691605016"
+                  alt="Image 12"
+              /></a>
+            </div>
+          </div>
+          <div class="slider-set">
+            <div class="slider-item">
+              <a href="#"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/Deal13.webp?v=1691605015"
+                  alt="Image 13"
+              /></a>
+            </div>
+            <div class="slider-item">
+              <a href="#"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/Deal14.webp?v=1691605015"
+                  alt="Image 14"
+              /></a>
+            </div>
+            <div class="slider-item">
+              <a href="#"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/Deal15.webp?v=1691605015"
+                  alt="Image 15"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="slider-control next" href="#">
+        <i class="fa-solid fa-circle-chevron-right"></i>
+      </button>
+
+      <script>
+        const sliderInner = document.querySelector(".slider-inner");
+        const sliderSets = document.querySelectorAll(".slider-set");
+        const sliderItemWidth = sliderSets[0].clientWidth / 3;
+        let currentIndex = 0;
+
+        const prevButton = document.querySelector(".prev");
+        const nextButton = document.querySelector(".next");
+
+        prevButton.addEventListener("click", () => {
+          currentIndex =
+            (currentIndex - 1 + sliderSets.length) % sliderSets.length;
+          updateSlider();
+        });
+
+        nextButton.addEventListener("click", () => {
+          currentIndex = (currentIndex + 1) % sliderSets.length;
+          updateSlider();
+        });
+
+        function updateSlider() {
+          const offset = -currentIndex * sliderItemWidth * 3;
+          sliderInner.style.transform = `translateX(${offset}px)`;
+
+          prevButton.style.display = currentIndex === 0 ? "none" : "block";
+          nextButton.style.display =
+            currentIndex === sliderSets.length - 1 ? "none" : "block";
+        }
+
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % sliderSets.length;
+          updateSlider();
+        }
+
+        setInterval(nextSlide, 3000);
+      </script>
+    </div>
+
+    
+  </body>
+</html>

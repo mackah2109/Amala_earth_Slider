@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Image Slider</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/82101c29b3.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        user-select: none;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .slider-wrapper {
+        width: 80rem;
+        height: 375px;
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        overflow: hidden;
+      }
+
+      .slider-inner {
+        position: absolute;
+        top: 0;
+        left: -10px;
+        display: flex;
+        pointer-events: none;
+        transition: 0.4s ease-out;
+      }
+
+      .slider-item {
+        position: relative;
+        margin: 0 15px;
+        width: 265px;
+        height: 265px;
+      }
+
+      .slider-item img {
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+      }
+      .image-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        color: white;
+        padding: 5px 10px;
+        font-size: 20px;
+        text-align: center;
+        font-family: Poppins;
+      }
+      .slider-wrapper button {
+        background-color: transparent;
+      }
+
+      .slider-wrapper .prev,
+      .slider-wrapper .next {
+        position: absolute;
+        z-index: 1;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        color: rgb(219, 216, 216);
+        font-size: 40px;
+        cursor: pointer;
+        margin-bottom: 90px;
+      }
+      .fa-solid {
+        display: none;
+      }
+      .slider-wrapper:hover .fa-solid {
+        display: inline-block;
+      }
+      .fa-solid:hover {
+        color: #b89c7d;
+      }
+      .slider-wrapper .prev {
+        left: 10px;
+      }
+
+      .slider-wrapper .next {
+        right: 10px;
+      }
+
+      @media (max-width: 768px) {
+        .slider-wrapper {
+          left: 0;
+        }
+
+        .slider-wrapper .prev,
+        .slider-wrapper .next {
+          display: none;
+        }
+
+        .slider-item {
+        width: 165px;
+        height: 165px;
+      }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="slider-wrapper">
+      <button class="prev">
+        <i class="fa-solid fa-circle-chevron-left"></i>
+      </button>
+
+      <div class="slider-inner">
+        <div class="slider-item">
+          <img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/d1.avif?v=1691773564" alt="..." />
+          <div class="image-text">Rakhi</div>
+        </div>
+        <div class="slider-item">
+          <img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/d2.avif?v=1691773562" alt="..." />
+          <div class="image-text">Mindful Eating</div>
+        </div>
+        <div class="slider-item">
+          <img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/d3.avif?v=1691773563.avif" alt="..." />
+          <div class="image-text">Ethical Beauty</div>
+        </div>
+        <div class="slider-item">
+          <img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/d4.avif?v=1691773563" alt="..." />
+          <div class="image-text">Joyful Home</div>
+        </div>
+        <div class="slider-item">
+          <img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/d5.avif?v=1691773563" alt="..." />
+          <div class="image-text">Fashion</div>
+        </div>
+        <div class="slider-item">
+          <img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/d6.avif?v=1691773563" alt="..." />
+          <div class="image-text">Baby</div>
+        </div>
+        <div class="slider-item">
+          <img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/d7.avif?v=1691773563" alt="..." />
+          <div class="image-text">Kids</div>
+        </div>
+        <div class="slider-item">
+          <img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/d8.avif?v=1691773563" alt="..." />
+          <div class="image-text">Gifts</div>
+        </div>
+        <div class="slider-item">
+          <img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/d9.avif?v=1691773562" alt="..." />
+          <div class="image-text">Earth-Friendly Offers</div>
+        </div>
+      </div>
+
+      <button class="next">
+        <i class="fa-solid fa-circle-chevron-right"></i>
+      </button>
+    </div>
+
+    <script>
+      const prev = document.querySelector(".prev");
+      const next = document.querySelector(".next");
+      const slider = document.querySelector(".slider-wrapper");
+      const innerSlider = document.querySelector(".slider-inner");
+
+      let dragged = false;
+      let startX;
+      let x;
+
+      slider.addEventListener("mouseenter", () => {
+        slider.style.cursor = "grab";
+      });
+
+      slider.addEventListener("mousemove", (e) => {
+        if (!dragged) return;
+        e.preventDefault();
+
+        x = e.offsetX;
+
+        innerSlider.style.left = `${x - startX}px`;
+
+        checkProbs();
+      });
+      slider.addEventListener("mouseup", () => {
+        slider.style.cursor = "grab";
+        dragged = false;
+      });
+      slider.addEventListener("mousedown", (e) => {
+        dragged = true;
+        startX = e.offsetX - innerSlider.offsetLeft;
+        slider.style.cursor = "grabbing";
+      });
+
+      slider.addEventListener(
+        "touchstart",
+        (e) => {
+          dragged = true;
+          startX = e.targetTouches[0].clientX - innerSlider.offsetLeft;
+
+          checkProbs();
+        },
+        { passive: true }
+      );
+
+      slider.addEventListener(
+        "touchmove",
+        (e) => {
+          if (!dragged) return;
+          x = e.targetTouches[0].clientX;
+
+          innerSlider.style.left = `${x - startX}px`;
+
+          checkProbs();
+        },
+        { passive: true }
+      );
+
+      prev.addEventListener("click", () => {
+        let innerSliderLeft = innerSlider.style.left;
+        innerSlider.style.left =
+          parseInt(innerSliderLeft.replace("px", "")) + 265 + "px";
+
+        checkProbs();
+      });
+
+      next.addEventListener("click", () => {
+        let innerSliderLeft = innerSlider.style.left;
+        innerSlider.style.left = innerSliderLeft.replace("px", "") - 265 + "px";
+
+        checkProbs();
+      });
+
+      const checkProbs = () => {
+        let outer = slider.getBoundingClientRect();
+        let inner = innerSlider.getBoundingClientRect();
+
+        if (parseInt(innerSlider.style.left) > 0)
+          innerSlider.style.left = "-10px";
+
+        if (inner.right < outer.right)
+          innerSlider.style.left = `-${inner.width - outer.width - 10}px`;
+      };
+    </script>
+  </body>
+</html>
