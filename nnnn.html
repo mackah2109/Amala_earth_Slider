@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .heading{
+            margin-left: 4rem;
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider {
+            margin-left: 4rem;
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            flex: 0 0 calc(100% / 2); /* Display two images on desktop */
+            max-width: 50%;
+        }
+
+        .slide img {
+            width: 90%;
+            height: auto;
+            vertical-align: middle;
+        }
+        .slider-controls {
+            position: absolute;
+            top: 43%;
+            left: 0;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+        }
+
+        .prev {
+            margin-left: 2rem;
+        }
+        .next{
+            margin-left: 93.5rem;
+        }
+        .slider-button {
+        position: absolute;
+        top: 43%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        text-decoration: none;
+        color: #333;
+        cursor: pointer;
+        z-index: 2;
+        border: none;
+        background-color: transparent;
+      }
+      .container:hover .fa-solid {
+        display: inline-block;
+      }
+      .fa-solid {
+        color: rgb(213, 212, 212);
+        font-size: 50px;
+        display: none;
+      }
+      .fa-solid:hover {
+        color: #b89c7d;
+      }
+
+        @media screen and (max-width: 767px) {
+            .heading{
+                margin-left: 2rem;
+            }
+            .slider{
+                margin-left: 2rem;
+            }
+            .slide {
+                flex: 0 0 100%; /* Display one image on mobile */
+                max-width: 100%;
+            }
+            .fa-solid{
+                font-size: 2rem;
+            }
+            .slider-button{
+                margin-top: -8rem;
+            }
+            .prev{
+                margin-left: 0.5rem;
+            }
+            .next{margin-left: 20.5rem;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heading">
+            <h2>Rakhi</h2>
+            <h1>Edits</h1>
+        </div>
+
+    
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <a href=""><img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/img1.webp?v=1692274174" alt="Image 1"></a>
+            </div>
+            <div class="slide">
+                <a href=""><img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/img2.webp?v=1692274182" alt="Image 2"></a>
+            </div>
+            
+            <div class="slide">
+                <a href=""><img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/img3.webp?v=1692274189" alt="Image 3"></a>
+            </div>
+            <div class="slide">
+                <a href=""><img src="https://cdn.shopify.com/s/files/1/0671/1839/9806/files/img4.webp?v=1692274191" alt="Image 3"></a>
+            </div>
+            <!-- Add more slide divs as needed -->
+        </div>
+    </div>
+    <div class="slider-controls">
+        <button class="slider-button prev" onclick="prevSlide()"><i class="fa-solid fa-circle-chevron-left"></i></button>
+        <button class="slider-button next" onclick="nextSlide()"><i class="fa-solid fa-circle-chevron-right"></i></button>
+    </div>
+
+    <script>
+        const slider = document.querySelector('.slider');
+    let slideIndex = 0;
+    const isMobileView = window.innerWidth <= 767; // Check if the current view is mobile
+    const slides = document.querySelectorAll('.slide');
+    const sliderLength = slides.length;
+
+    function showSlide(index) {
+        slider.style.transform = `translateX(-${index * (isMobileView ? 100 : 50)}%)`; // Adjust based on view
+    }
+
+    function prevSlide() {
+        if (isMobileView) {
+            slideIndex = (slideIndex - 1 + sliderLength) % sliderLength; // Show one image at a time in mobile
+        } else {
+            slideIndex = (slideIndex - 2 + sliderLength) % sliderLength; // Show two images at a time in desktop
+        }
+        showSlide(slideIndex);
+    }
+
+    function nextSlide() {
+        if (isMobileView) {
+            slideIndex = (slideIndex + 1) % sliderLength; // Show one image at a time in mobile
+        } else {
+            slideIndex = (slideIndex + 2) % sliderLength; // Show two images at a time in desktop
+        }
+        showSlide(slideIndex);
+    }
+
+    setInterval(nextSlide, 3000); // Auto slide every 3 seconds
+    </script>
+
+
+</div>
+</body>
+</html>
